@@ -1,0 +1,10 @@
+<html>
+<head>Error</head>
+
+<body>
+	<p>Database Error Page</p>
+	<div>
+		${ex}
+	</div>
+</body>
+</html>
