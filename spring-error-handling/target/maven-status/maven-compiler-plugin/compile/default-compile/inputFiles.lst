@@ -1,6 +1,0 @@
-/Users/gelnyang/workspace/github/spring_demo/spring-error-handling/src/main/java/spring/demo/errorhandling/api/controller/ApiController.java
-/Users/gelnyang/workspace/github/spring_demo/spring-error-handling/src/main/java/spring/demo/errorhandling/Application.java
-/Users/gelnyang/workspace/github/spring_demo/spring-error-handling/src/main/java/spring/demo/errorhandling/exception/DatabaseException.java
-/Users/gelnyang/workspace/github/spring_demo/spring-error-handling/src/main/java/spring/demo/errorhandling/exception/UnconfigException.java
-/Users/gelnyang/workspace/github/spring_demo/spring-error-handling/src/main/java/spring/demo/errorhandling/api/controller/HomeController.java
-/Users/gelnyang/workspace/github/spring_demo/spring-error-handling/src/main/java/spring/demo/errorhandling/config/ExceptionHandleConfig.java
