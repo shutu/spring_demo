@@ -13,14 +13,26 @@ import spring.inject.ctw.entity.User;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-	private static Logger log = LoggerFactory.getLogger(UserController.class);
-	
-	@RequestMapping(value = "", method = RequestMethod.POST)
-	@ResponseBody
-	public User postUser(@RequestBody User user) {
-		log.info("user={}", user);
-		user.displayDependencies();
-		new User().displayDependencies();
-		return user;
-	}
+
+    private static Logger log = LoggerFactory.getLogger(UserController.class);
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public User postUser() {
+        User user = new User();
+        user.setId(System.currentTimeMillis() + "");
+        user.setName("hello");
+        log.info("user={}", user);
+        user.displayDependencies();
+        return user;
+    }
+
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    @ResponseBody
+    public User postUser(@RequestBody User user) {
+        log.info("user={}", user);
+        user.displayDependencies();
+        new User().displayDependencies();
+        return user;
+    }
 }
