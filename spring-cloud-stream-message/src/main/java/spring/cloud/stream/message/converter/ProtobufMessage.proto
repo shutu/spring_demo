@@ -1,0 +1,19 @@
+syntax = "proto3";
+package spring.cloud.stream.message.converter;
+
+option java_package = "spring.cloud.stream.message.converter";
+option java_outer_classname = "ProtobufMessage";
+
+message DemoMessage  {
+  int64 seqNo = 1;
+  string content = 2;
+  repeated string receiveTargets = 3;
+  MessageType type = 4;
+
+
+    enum MessageType {
+        NORMAL = 0;
+        NOTIFICATION = 1;
+        WARNING = 2;
+    }
+}

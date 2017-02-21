@@ -1,0 +1,27 @@
+server:
+  port: 8082
+spring:
+  cloud:
+    stream:
+      bindings:
+        sample-source:
+          destination: test_message
+        input:
+          destination: test_message
+        output:
+          destination: test_sendto
+          content-type: application/json
+        sample-sink:
+          destination: test_sendto
+        converter-source:
+          destination: test_demo_message
+          content-type: application/x-spring-demo-message
+        converter-sink:
+          destination: test_demo_message
+          content-type: application/x-spring-demo-message
+  rabbitmq:
+    host: ${SPRING_DEMO_RMQ_HOST:127.0.0.1}
+    port: ${SPRING_DEMO_RMQ_PORT:5672}
+    username: ${SPRING_DEMO_RMQ_USERNAME:spring_demo}
+    password: ${SPRING_DEMO_RMQ_PASSWORD:password}
+    virtual-host: ${SPRING_DEMO_RMQ_VHOST:demo}
