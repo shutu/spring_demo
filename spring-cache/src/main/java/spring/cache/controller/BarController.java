@@ -1,0 +1,35 @@
+package spring.cache.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import spring.cache.demo.Bar;
+import spring.cache.service.BarService;
+
+/**
+ * Class BarController
+ *
+ * @author wangoo
+ * @since 2017-03-03 10:21
+ */
+@RestController
+@RequestMapping(path = "/")
+public class BarController {
+
+    @Autowired
+    BarService barService;
+
+    @RequestMapping(path = "/bar", method = RequestMethod.GET)
+    public Bar getBar(@RequestParam("id") long id) {
+        return barService.getBar(id);
+    }
+
+    @RequestMapping(path = "/expired_bar", method = RequestMethod.GET)
+    public Bar getExpiredBar(@RequestParam("id") long id) {
+        return barService.getExpiredBar(id);
+    }
+
+}

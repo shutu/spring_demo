@@ -46,6 +46,7 @@
         <module>spring-inject-ctw</module>
         <module>spring-error-handling</module>
         <module>spring-cloud-stream-message</module>
+        <module>spring-cache</module>
     </modules>
 
     <build>
