@@ -5,6 +5,7 @@ package spring.cache;
 
 import com.google.common.cache.CacheBuilder;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.CacheManager;
@@ -13,8 +14,12 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.guava.GuavaCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.cache.RedisCacheManager;
+import org.springframework.data.redis.core.RedisTemplate;
 
 import java.util.concurrent.TimeUnit;
+
+import javax.annotation.Resource;
 
 /**
  * @author gelnyang
@@ -36,10 +41,14 @@ public class CacheApplication {
 @EnableCaching
 class CacheConfig extends CachingConfigurerSupport {
 
+    @Autowired
+    @Resource(name = "redisTemplate")
+    private RedisTemplate redisTemplate;
+
     @Override
     @Bean
     public CacheManager cacheManager() {
-        GuavaCacheManager cacheManager = new GuavaCacheManager();
+        RedisCacheManager cacheManager = new RedisCacheManager(redisTemplate);
         return cacheManager;
     }
 

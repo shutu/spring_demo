@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 import spring.cache.demo.Bar;
 import spring.cache.service.BarService;
 
@@ -25,6 +27,11 @@ public class BarController {
     @RequestMapping(path = "/bar", method = RequestMethod.GET)
     public Bar getBar(@RequestParam("id") long id) {
         return barService.getBar(id);
+    }
+
+    @RequestMapping(path = "/customer_bar", method = RequestMethod.GET)
+    public Bar getCustomerBar(@RequestParam("id") long id) throws IOException {
+        return barService.getCustomerBar(id);
     }
 
     @RequestMapping(path = "/expired_bar", method = RequestMethod.GET)

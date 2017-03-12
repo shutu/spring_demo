@@ -1,12 +1,14 @@
 package spring.cache.demo;
 
+import java.io.Serializable;
+
 /**
  * Class Bar
  *
  * @author wangoo
  * @since 2017-02-17 17:21
  */
-public class Bar {
+public class Bar implements Serializable {
     private long id;
     private String value;
 

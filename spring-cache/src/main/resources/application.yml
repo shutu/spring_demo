@@ -1,5 +1,17 @@
 server:
   port: 8083
+spring:
+  redis:
+    database: 0
+    host: ${REDIS_HOST:localhost}
+    password: ${REDIS_PASSWORD:test123}
+    port: ${REDIS_PORT:6379}
+    timeout: ${REDIS_TIMEOUT:1000}
+    pool:
+      max-active: ${REDIS_MAX_ACTIVE:100}
+      max-wait: ${REDIS_MAX_WAIT:500}
+      max-idle: ${REDIS_MAX_IDLE:20}
+      min-idle: ${REDIS_MIN_IDLE:5}
 logging:
   level:
     org.springframework.cache: DEBUG
