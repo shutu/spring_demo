@@ -1,0 +1,15 @@
+server:
+  port: 8084
+security:
+  user:
+    name: admin
+    password: parsing_sound318
+  basic:
+    enabled: true
+# Securing the Spring Boot Management Endpoints
+# see http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-monitoring.html
+management:
+  contextPath: /management
+  security:
+    roles: SUPERUSER
+    enabled: true
