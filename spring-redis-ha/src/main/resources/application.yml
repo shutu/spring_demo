@@ -1,0 +1,19 @@
+server:
+  port: 8084
+spring:
+  redis:
+    database: 0
+    password: ${REDIS_PASSWORD:mypassword}
+    timeout: ${REDIS_TIMEOUT:1000}
+    sentinel:
+      master: redisha
+      nodes: 127.0.0.1:26379,127.0.0.1:26380
+    pool:
+      max-active: ${REDIS_MAX_ACTIVE:100}
+      max-wait: ${REDIS_MAX_WAIT:500}
+      max-idle: ${REDIS_MAX_IDLE:20}
+      min-idle: ${REDIS_MIN_IDLE:5}
+logging:
+  level:
+    org.springframework.cache: DEBUG
+    com.google: DEBUG

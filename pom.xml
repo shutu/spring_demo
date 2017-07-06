@@ -12,7 +12,7 @@
 
     <properties>
         <jdk.version>1.8</jdk.version>
-        <spring.boot.version>1.5.1.RELEASE</spring.boot.version>
+        <spring.boot.version>1.5.4.RELEASE</spring.boot.version>
     </properties>
 
     <dependencies>
@@ -27,7 +27,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Camden.SR5</version>
+                <version>Camden.SR7</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -44,9 +44,11 @@
     <modules>
         <module>spring-boot-demo</module>
         <module>spring-inject-ctw</module>
-        <module>spring-error-handling</module>
+        <module>spring-cache-example</module>
+        <module>spring-customer-exception-resolver</module>
+        <module>spring-customer-exception-template</module>
         <module>spring-cloud-stream-message</module>
-        <module>spring-cache</module>
+        <module>spring-redis-ha</module>
     </modules>
 
     <build>
