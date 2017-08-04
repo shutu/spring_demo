@@ -5,6 +5,8 @@ import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Processor;
 import org.springframework.messaging.handler.annotation.SendTo;
 
+import lombok.extern.slf4j.Slf4j;
+
 
 /**
  * Class SampleTransformer
@@ -13,6 +15,7 @@ import org.springframework.messaging.handler.annotation.SendTo;
  * @since 2017-02-17 17:26
  */
 @EnableBinding(Processor.class)
+@Slf4j
 public class SampleTransformer {
 
     private static final String TRANSFORMATION_VALUE = "HI";
@@ -20,8 +23,7 @@ public class SampleTransformer {
     @StreamListener(Processor.INPUT)
     @SendTo(Processor.OUTPUT)
     public Bar receive(Bar barMessage) {
-        System.out.println(
-                "[TRANSF][SAMPLE]:" + TRANSFORMATION_VALUE + " , " + barMessage.getClass());
+        log.info("[TRANSF][channel]:" + TRANSFORMATION_VALUE + " , " + barMessage.getClass());
         barMessage.setValue(TRANSFORMATION_VALUE);
         return barMessage;
     }

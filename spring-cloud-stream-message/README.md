@@ -9,9 +9,11 @@ sudo rabbitmqctl add_vhost demo
 
 # Creating user
 sudo rabbitmqctl add_user spring_demo password
+sudo rabbitmqctl add_user spring_demo2 password
 
 # Setting permissions
 sudo rabbitmqctl  set_permissions -p demo spring_demo ".*" ".*" ".*"
+sudo rabbitmqctl  set_permissions -p demo spring_demo2 ".*" ".*" ".*"
 ```
 
 

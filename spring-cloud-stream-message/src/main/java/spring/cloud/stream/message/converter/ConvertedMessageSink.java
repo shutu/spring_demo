@@ -5,6 +5,8 @@ import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.SubscribableChannel;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Class SampleSink
  *
@@ -12,12 +14,12 @@ import org.springframework.messaging.SubscribableChannel;
  * @since 2017-02-17 17:22
  */
 @EnableBinding(ConvertedMessageSink.ConverterSink.class)
+@Slf4j
 public class ConvertedMessageSink {
 
-    // Sink application definition
     @StreamListener(ConverterSink.CONVERTER_SINK)
     public void receive(ProtobufMessage.DemoMessage demoMessage) {
-        System.out.println("[  SINK][DEMO MESSAGE]:" + demoMessage.getSeqNo() + " , " + demoMessage
+        log.info("[  SINK][DEMO MESSAGE]:" + demoMessage.getSeqNo() + " , " + demoMessage
                 .getContent());
     }
 

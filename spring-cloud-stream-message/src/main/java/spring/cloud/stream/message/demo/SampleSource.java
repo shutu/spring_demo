@@ -11,6 +11,8 @@ import org.springframework.integration.support.MessageBuilder;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 
+import lombok.extern.slf4j.Slf4j;
+
 import static org.springframework.messaging.MessageHeaders.CONTENT_TYPE;
 
 /**
@@ -20,6 +22,7 @@ import static org.springframework.messaging.MessageHeaders.CONTENT_TYPE;
  * @since 2017-02-17 17:25
  */
 @EnableBinding(SampleSource.Source.class)
+@Slf4j
 public class SampleSource {
 
     @Bean
@@ -28,7 +31,7 @@ public class SampleSource {
         return new MessageSource<String>() {
             public Message<String> receive() {
                 String value = "{\"value\":\"hi\"}";
-                System.out.println("[SOURCE][SAMPLE]:" + value);
+                log.info("[SOURCE][channel]:" + value);
                 return MessageBuilder.withPayload(value).setHeader(CONTENT_TYPE, "application/json")
                         .build();
             }

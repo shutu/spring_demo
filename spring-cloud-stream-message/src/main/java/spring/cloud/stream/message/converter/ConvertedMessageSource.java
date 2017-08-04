@@ -11,6 +11,8 @@ import org.springframework.integration.support.MessageBuilder;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 
+import lombok.extern.slf4j.Slf4j;
+
 import static org.springframework.messaging.MessageHeaders.CONTENT_TYPE;
 
 /**
@@ -18,6 +20,7 @@ import static org.springframework.messaging.MessageHeaders.CONTENT_TYPE;
  * @since 2017-02-17 17:25
  */
 @EnableBinding(ConvertedMessageSource.ConverterSource.class)
+@Slf4j
 public class ConvertedMessageSource {
 
     @Bean
@@ -27,7 +30,7 @@ public class ConvertedMessageSource {
             public Message<ProtobufMessage.DemoMessage> receive() {
                 Long seqNo = System.currentTimeMillis();
                 String content = "test message";
-                System.out.println("[SOURCE][DEMO MESSAGE]:" + seqNo + " , " + content);
+                log.info("[SOURCE][DEMO MESSAGE]:" + seqNo + " , " + content);
                 ProtobufMessage.DemoMessage demoMessage =
                         ProtobufMessage.DemoMessage.newBuilder().setSeqNo(seqNo).setContent(content)
                                 .setType(ProtobufMessage.DemoMessage.MessageType.NORMAL).build();

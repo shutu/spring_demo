@@ -19,6 +19,23 @@ spring:
         converter-sink:
           destination: test_demo_message
           content-type: application/x-spring-demo-message
+        dynamic-1:
+          destination: dynamic-1
+          binder: binder2
+        dynamic-2:
+          destination: dynamic-2
+          binder: binder2
+      binders:
+        binder2:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: ${RMQ_HOST:127.0.0.1}
+                port: ${RMQ_PORT:5672}
+                username: ${RMQ_USERNAME:spring_demo2}
+                password: ${RMQ_PASSWORD:password}
+                virtual-host: ${RMQ_VHOST:demo}
   rabbitmq:
     host: ${SPRING_DEMO_RMQ_HOST:127.0.0.1}
     port: ${SPRING_DEMO_RMQ_PORT:5672}
